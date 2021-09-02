@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+ <arg name="world_name" default="$(find pauli)/worlds/maze.world"/>
+  <include
+    file="$(find gazebo_ros)/launch/empty_world.launch">
+  <arg name="world_name" value="$(arg world_name)" />    
+  </include>   
+
+  <param name="robot_description"
+    command="$(find xacro)/xacro --inorder '$(find pauli)/urdf/xacro/model_pauli.xacro'" />
+  <node
+    name="tf_footprint_base"
+    pkg="tf"
+    type="static_transform_publisher"
+    args="0 0 0 0 0 0 base_link base_footprint 40" />
+  <node
+    name="spawn_model"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-urdf -model pauli -param robot_description"
+    output="screen" />
+
+
+
+</launch>
