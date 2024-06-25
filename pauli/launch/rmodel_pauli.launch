@@ -1,27 +1,18 @@
-<?xml version="1.0"?>
 <launch>
-  <arg
-    name="pauli" />
-  <arg
-    name="gui"
-    default="False" />
-  <param
-    name="robot_description"
-    textfile="$(find pauli)/urdf/model_pauli.urdf" />
-  <param
-    name="use_gui"
-    value="$(arg gui)" />
-  <node
-    name="joint_state_publisher"
-    pkg="joint_state_publisher"
-    type="joint_state_publisher" />
-  <node
-    name="robot_state_publisher"
-    pkg="robot_state_publisher"
-    type="robot_state_publisher" />
-  <node
-    name="rviz"
-    pkg="rviz"
-    type="rviz"
-    args="-d $(find pauli)/rviz/model.rviz" />
-</launch>
+<!-- variable -->
+    <let name="urdf_path"
+         value="$(find-pkg-share pauli)/urdf/model_pauli.urdf" />
+    <let name="config_path"
+         value="$(find-pkg-share pauli)/rviz2/model.rviz" />
+         
+<!-- opening nodes -->
+    <node pkg="robot_state_publisher" exec="robot_state_publisher">
+        <param name="robot_description"
+            value="$(command 'xacro $(var urdf_path)')" />
+    </node>
+
+    <node  pkg="joint_state_publisher" exec="joint_state_publisher" />
+
+    <node pkg="rviz2" exec="rviz2" output="screen"
+            args="-d $(var config_path)" />
+</launch> 

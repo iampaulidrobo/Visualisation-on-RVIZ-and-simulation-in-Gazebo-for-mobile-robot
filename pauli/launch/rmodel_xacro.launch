@@ -1,16 +1,21 @@
 <launch>
-  <param name="robot_description"
-    command="$(find xacro)/xacro --inorder '$(find pauli)/urdf/xacro/model_pauli.xacro'" />
+<!-- variables -->
+    <let name="urdf_path"
+         value="$(find-pkg-share pauli)/urdf/xacro/model_pauli.xacro" />
+    <let name="config_path"
+         value="$(find-pkg-share pauli)/rviz2/differential_drive.rviz" />
+         
+<!-- opening nodes -->
+    <!-- Combine joint values -->
+    <node pkg="robot_state_publisher" exec="robot_state_publisher">
+        <param name="robot_description"
+            value="$(command 'xacro $(var urdf_path)')" />
+    </node>
 
-  <!-- send fake joint values -->
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
-    <param name="use_gui" value="TRUE"/>
-  </node>
+    <!-- send fake joint values -->
+    <node  pkg="joint_state_publisher_gui" exec="joint_state_publisher_gui" />
 
-  <!-- Combine joint values -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
-
-  <!-- Show in Rviz   -->
-  <node name="rviz" pkg="rviz" type="rviz"  args="-d $(find pauli)/rviz/differential_drive.rviz" />
-
-</launch>
+    <!-- Show in Rviz   -->
+    <node pkg="rviz2" exec="rviz2" output="screen"
+            args="-d $(var config_path)" />
+</launch> 
