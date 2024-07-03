@@ -1,4 +1,4 @@
-# Visualisation on RVIZ and simulation in Gazebo for mobile robot in ROS1
+# Visualisation on RVIZ and simulation in Gazebo for mobile robot in ROS2
  The package contain mobile robot with different module attached with different design and texture added.
  
 <br/>
@@ -25,7 +25,7 @@
 <br/>
 
 ## Prequisite And Dependencies
-To use the robot:**pauli_package**, Ensure, <br/>***First***,ROS2 Humble is installed on your PC and you have a bit of familiarity with installing ROS packages [add more here] <br/>***Second***, You have the following packages installed or you can install them again if you're unsure
+To use the robot:**pauli_package**, Ensure, <br/>***First***,ROS2 Humble is installed on your PC and you have a bit of familiarity with installing ROS packages. Refer to the official ROS 2 documentation for installation instructions: https://docs.ros.org/en/humble/Installation.html <br/> <br/>***Second***, You have the following packages installed or you can install them again if you're unsure
 
 - update and upgrade your ubuntu repos and packages
   ```shell
@@ -52,7 +52,7 @@ To use the robot:**pauli_package**, Ensure, <br/>***First***,ROS2 Humble is inst
 <br/>
 
 ## Setting up the Robot:
-- clone repo in your ROS2 workspace.
+- Clone the repository into your ROS 2 workspace:
 
   ```shell
   cd /PATH_TO_ROS_WS/src
@@ -60,7 +60,7 @@ To use the robot:**pauli_package**, Ensure, <br/>***First***,ROS2 Humble is inst
   git clone [Update Link]
   ```
 
-- Build the pauli package
+- Build the ```pauli``` package:
 
   ```shell
   colcon build --symlink-install --packages-select pauli
@@ -73,18 +73,37 @@ To use the robot:**pauli_package**, Ensure, <br/>***First***,ROS2 Humble is inst
 <br/>
 <br/>
 
-## Launch the Robot:
+## Model and Launch File Naming Convention:
 
+### The naming convention for the URDF models reflects the sensors or plugins they contain, :
+
+  -  model_pauli: Base model without specific sensors.
+  -  differential_drive: Includes differential drive for teleoperation.
+  -  dd: Includes differential drive
+  -  lidar: Includes LiDAR sensor.
+  -  c_: Prefix signifying "combined" functionality (Gazebo simulation and RVIZ visualization).
+  -  imu: Suffixes indicating the presence of an Inertial Measurement Unit (IMU).
+  -  fir: Suffixes indicating the presence of a Forward IR Sensor.
+  -  camera: Suffixes indicating the presence of Camera Sensor.
+
+### The launch file names follow a convention to indicate their functionality:
+  -  r*: Launch files starting with "r" launch the model for RVIZ visualization.
+  -  g*: Launch files starting with "g" launch the model in Gazebo simulation.
+  -  c*: Launch files starting with "c" combine both functionalities, launching the model in Gazebo and displaying it in RVIZ simultaneously.
+
+## Launching the Robot:
 **Visualize URDF in RVIZ:**
 
   ```shell
   ros2 launch pauli rmodel_xacro.launch.py
   ```
-**Spawn Model in Gazebo:**
+  ![rviz2](./resources/rviz2.png)
+**Spawn Model in Gazebo (with Maze world):**
 
   ```shell
   ros2 launch pauli gmodel_xacro.launch.py
   ```
+  ![gazebo](./resources/gazebo.png)
 **Visualize in RVIZ and Spawn Model in Gazebo:**
 
   ```shell
