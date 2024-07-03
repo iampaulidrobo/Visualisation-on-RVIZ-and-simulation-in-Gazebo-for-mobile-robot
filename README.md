@@ -1,6 +1,9 @@
 # Visualisation on RVIZ and simulation in Gazebo for mobile robot in ROS1
  The package contain mobile robot with different module attached with different design and texture added.
  
+<br/>
+<br/>
+
  (I)URDF
    1)model_pauli.urdf-Contains Robot body with different component attached.
    2)differential_drive.urdf-Contains Robot body with wheel movement attached for teleop.
@@ -19,6 +22,72 @@
   (IV)config-Contains the joint configuration of the robot model.
   (V)Buidding_model-Contains model of the maze in sdf file.
   (VI)worlds-The model file in sdf is imported in the world format along with ground and sun addition.
-  
-  
-       
+<br/>
+
+## Prequisite And Dependencies
+To use the robot:**pauli_package**, Ensure, <br/>***First***,ROS2 Humble is installed on your PC and you have a bit of familiarity with installing ROS packages [add more here] <br/>***Second***, You have the following packages installed or you can install them again if you're unsure
+
+- update and upgrade your ubuntu repos and packages
+  ```shell
+  sudo apt update && sudo apt upgrade
+  ```
+- gazebo simulator and packages and ros2 control
+  ```shell
+  sudo apt install ros-humble-gazebo-ros-pkgs
+
+  sudo apt install ros-humble-gazebo-ros2-control
+  ```
+- xacro
+  ```shell
+  sudo apt install ros-humble-xacro
+  ```
+- robot_state_publisher for publishing robot urdf transform and joint_state_publisher for publishing sim joint values
+  ```shell
+  sudo apt install ros-humble-robot-state-publisher
+
+  sudo apt install ros-humble-joint-state-publisher
+  sudo apt install ros-humble-joint-state-publisher-gui
+  ```
+<br/>
+<br/>
+
+## Setting up the Robot:
+- clone repo in your ROS2 workspace.
+
+  ```shell
+  cd /PATH_TO_ROS_WS/src
+
+  git clone [Update Link]
+  ```
+
+- Build the pauli package
+
+  ```shell
+  colcon build --symlink-install --packages-select pauli
+  ```
+- Source your ROS2 workspace(recommended: add to ~/.bashrc and source ~/.bashrc)
+
+  ```shell
+  source /PATH_TO_ROS_WS/install/setup.bash
+  ```
+<br/>
+<br/>
+
+## Launch the Robot:
+
+**Visualize URDF in RVIZ:**
+
+  ```shell
+  ros2 launch pauli rmodel_xacro.launch.py
+  ```
+**Spawn Model in Gazebo:**
+
+  ```shell
+  ros2 launch pauli gmodel_xacro.launch.py
+  ```
+**Visualize in RVIZ and Spawn Model in Gazebo:**
+
+  ```shell
+  ros2 launch pauli cmodel_xacro.launch.py
+  ```
+<br/>

@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <robot name="pauli" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find pauli)/urdf/xacro/model_pauli_colored.xacro"/>
-  <xacro:include filename="$(find pauli)/urdf/xacro/pauli_plugins_gazebo.xacro"/>
+  <xacro:include filename="model_pauli_colored.xacro"/>
+  <xacro:include filename="pauli_plugins_gazebo.xacro"/>
 
-  <link name="base_footprint"/>
+  <link name="base_footprint"/> 
 
   <joint name="base_joint" type="fixed">
     <parent link="base_footprint"/>
