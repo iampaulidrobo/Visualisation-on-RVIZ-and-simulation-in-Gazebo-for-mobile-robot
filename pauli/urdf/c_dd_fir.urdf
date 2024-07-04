@@ -1,0 +1,989 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="pauli">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0827987345980127 1.83243031281616E-17 0.0784992660554831"
+        rpy="0 0 0" />
+      <mass
+        value="0.613776529879719" />
+      <inertia
+        ixx="0.00203019817083969"
+        ixy="7.73666733199254E-20"
+        ixz="-7.84328420502032E-05"
+        iyy="0.00345682018038741"
+        iyz="-2.30076090362524E-20"
+        izz="0.00536735194207918" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="fir">
+    <inertial>
+      <origin
+        xyz="0 -3.20178454062125E-19 -1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00312500000000001" />
+      <inertia
+        ixx="1.69270833333334E-07"
+        ixy="-5.24666324745101E-24"
+        ixz="-9.92616735063682E-26"
+        iyy="1.69270833333334E-07"
+        iyz="-9.45191713277259E-24"
+        izz="3.25520833333334E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/fir.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/fir.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jfir"
+    type="fixed">
+    <origin
+      xyz="0.2075 0 0.07473891288"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="fir" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="rir">
+    <inertial>
+      <origin
+        xyz="0 1.38777878078145E-17 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.003125" />
+      <inertia
+        ixx="1.69270833333333E-07"
+        ixy="2.67874169569172E-25"
+        ixz="4.03664138925878E-24"
+        iyy="1.69270833333333E-07"
+        iyz="-1.18011100724232E-24"
+        izz="3.25520833333333E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/rir.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/rir.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jrir"
+    type="fixed">
+    <origin
+      xyz="0.095 -0.0875 0.07473891288"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="rir" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="bir">
+    <inertial>
+      <origin
+        xyz="0 -7.1506521407208E-18 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.003125" />
+      <inertia
+        ixx="1.69270833333333E-07"
+        ixy="-1.07612006644712E-23"
+        ixz="-5.61379909052655E-24"
+        iyy="1.69270833333334E-07"
+        iyz="-1.22091858412827E-23"
+        izz="3.25520833333334E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/bir.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/bir.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jbir"
+    type="fixed">
+    <origin
+      xyz="-0.0255 0 0.07473891288"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="bir" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="lir">
+    <inertial>
+      <origin
+        xyz="-1.38777878078145E-17 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.003125" />
+      <inertia
+        ixx="1.69270833333333E-07"
+        ixy="2.67874169569172E-25"
+        ixz="4.03664138925878E-24"
+        iyy="1.69270833333333E-07"
+        iyz="-1.18011100724232E-24"
+        izz="3.25520833333333E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/lir.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/lir.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jlir"
+    type="fixed">
+    <origin
+      xyz="0.095 0.0875 0.07473891288"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lir" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="frir1">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-17 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.00312500000000001" />
+      <inertia
+        ixx="1.69270833333334E-07"
+        ixy="-6.1731055335104E-24"
+        ixz="-1.47789602776141E-24"
+        iyy="1.69270833333334E-07"
+        iyz="-8.07328277851754E-24"
+        izz="3.25520833333334E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/frir1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/frir1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jfrir1"
+    type="fixed">
+    <origin
+      xyz="0.1725 -0.025 0.07473891288"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="frir1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="frir2">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.003125" />
+      <inertia
+        ixx="1.69270833333334E-07"
+        ixy="5.78241158658936E-24"
+        ixz="4.03664138925877E-24"
+        iyy="1.69270833333334E-07"
+        iyz="-5.31601407000745E-24"
+        izz="3.25520833333334E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/frir2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/frir2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jfrir2"
+    type="fixed">
+    <origin
+      xyz="0.1375 -0.05 0.07473891288"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="frir2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="flir1">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-17 -3.46944695195361E-18 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.00312500000000001" />
+      <inertia
+        ixx="1.69270833333334E-07"
+        ixy="3.09131732708352E-24"
+        ixz="2.65800703500372E-24"
+        iyy="1.69270833333334E-07"
+        iyz="-1.22091858412827E-23"
+        izz="3.25520833333334E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/flir1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/flir1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jflir1"
+    type="fixed">
+    <origin
+      xyz="0.1725 0.025 0.07473891288"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="flir1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="flir2">
+    <inertial>
+      <origin
+        xyz="0 -6.93889390390723E-18 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.003125" />
+      <inertia
+        ixx="1.69270833333333E-07"
+        ixy="2.67874169569172E-25"
+        ixz="4.03664138925877E-24"
+        iyy="1.69270833333334E-07"
+        iyz="-3.93737971575241E-24"
+        izz="3.25520833333334E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/flir2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/flir2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jflir2"
+    type="fixed">
+    <origin
+      xyz="0.1375 0.05 0.07473891288"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="flir2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="cam">
+    <inertial>
+      <origin
+        xyz="-5.55111512312578E-17 -7.27319116376891E-18 -0.01"
+        rpy="0 0 0" />
+      <mass
+        value="0.00800000000000001" />
+      <inertia
+        ixx="5.33333333333334E-07"
+        ixy="-2.34506605395942E-23"
+        ixz="-9.96187543624935E-24"
+        iyy="5.33333333333335E-07"
+        iyz="-3.76873192665008E-24"
+        izz="5.33333333333334E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/cam.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/cam.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jcam"
+    type="fixed">
+    <origin
+      xyz="0.21 0 0.10723891288"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="cam" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="scam">
+    <inertial>
+      <origin
+        xyz="0 -8.65365889033751E-19 -0.0133333333333333"
+        rpy="0 0 0" />
+      <mass
+        value="0.00960000000000001" />
+      <inertia
+        ixx="1.92853333333333E-06"
+        ixy="-2.25800168136325E-24"
+        ixz="-9.30578189122159E-24"
+        iyy="9.33333333333334E-07"
+        iyz="1.43310709548107E-22"
+        izz="1.1552E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/scam.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/scam.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jscam"
+    type="fixed">
+    <origin
+      xyz="0.195 0 0.12723891288"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="scam" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="dcam">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-17 -5.93812236253732E-18 -0.0275"
+        rpy="0 0 0" />
+      <mass
+        value="0.00352" />
+      <inertia
+        ixx="9.06106666666667E-07"
+        ixy="-1.67509398279336E-24"
+        ixz="-9.17247099671904E-24"
+        iyy="9.06106666666667E-07"
+        iyz="1.76282961029487E-23"
+        izz="3.75466666666667E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/dcam.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/dcam.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jdcam"
+    type="fixed">
+    <origin
+      xyz="0.186 0 0.14223891288"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="dcam" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="lidar">
+    <inertial>
+      <origin
+        xyz="0 -2.90048344231063E-17 -0.03"
+        rpy="0 0 0" />
+      <mass
+        value="0.00600000000000001" />
+      <inertia
+        ixx="1.85E-06"
+        ixy="-5.32642551665082E-25"
+        ixz="9.84026409256897E-24"
+        iyy="1.85E-06"
+        iyz="1.01753545033817E-38"
+        izz="1E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jlidar"
+    type="fixed">
+    <origin
+      xyz="0.095 0 0.15723891288"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="imu">
+    <inertial>
+      <origin
+        xyz="0 -2.97600751509612E-17 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.004" />
+      <inertia
+        ixx="1.66666666666667E-07"
+        ixy="-5.70471720715814E-23"
+        ixz="1.63624177864271E-23"
+        iyy="1.66666666666667E-07"
+        iyz="4.69058611757858E-24"
+        izz="2.66666666666667E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/imu.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/imu.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jimu"
+    type="fixed">
+    <origin
+      xyz="0.095 0 0.09223891288"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="imu" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="lwheel">
+    <inertial>
+      <origin
+        xyz="6.07153216591882E-18 0.0100000000000001 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.109592030403025" />
+      <inertia
+        ixx="0.000154736253425142"
+        ixy="-5.01122927298111E-20"
+        ixz="-4.31986803099693E-20"
+        iyy="0.000303228108341124"
+        iyz="1.04714940044078E-19"
+        izz="0.000154736253425142" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/lwheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/lwheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jlwheel"
+    type="continuous">
+    <origin
+      xyz="0 0.105 0.0622389128799999"
+      rpy="0 -0.0531729621739823 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lwheel" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="rwheel">
+    <inertial>
+      <origin
+        xyz="3.45511600618075E-17 -0.01 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.109592030403025" />
+      <inertia
+        ixx="0.000154736253425143"
+        ixy="1.41561894762004E-22"
+        ixz="-4.12556330510823E-20"
+        iyy="0.000303228108341124"
+        iyz="-1.28048089303966E-22"
+        izz="0.000154736253425143" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/rwheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/rwheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jrwheel"
+    type="continuous">
+    <origin
+      xyz="0 -0.105 0.06223891288"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="rwheel" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="caster">
+    <inertial>
+      <origin
+        xyz="-0.0040513 0.0020392 0.008911"
+        rpy="0 0 0" />
+      <mass
+        value="0.0041888" />
+      <inertia
+        ixx="1.6755E-07"
+        ixy="-3.3087E-24"
+        ixz="6.6174E-24"
+        iyy="1.6755E-07"
+        iyz="0"
+        izz="1.6755E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/caster.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pauli/meshes/caster.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jcaster"
+    type="continuous">
+    <origin
+      xyz="0.145 0 0"
+      rpy="0.22497 0.41717 -0.14732" />
+    <parent
+      link="base_link" />
+    <child
+      link="caster" />
+    <axis
+      xyz="0.40518 -0.20394 -0.8912" />
+  </joint>
+  
+
+
+
+
+
+
+<gazebo>
+  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+
+    <!-- Plugin update rate in Hz -->
+    <updateRate>60</updateRate>
+
+    <!-- Name of left joint, defaults to `left_joint` -->
+    <leftJoint>jlwheel</leftJoint>
+
+    <!-- Name of right joint, defaults to `right_joint` -->
+    <rightJoint>jrwheel</rightJoint>
+
+    <!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
+    <wheelSeparation>0.256</wheelSeparation>
+
+    <!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
+    <wheelDiameter>0.42</wheelDiameter>
+
+    <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
+    <wheelAcceleration>1.0</wheelAcceleration>
+
+    <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
+    <wheelTorque>20</wheelTorque>
+
+    <!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
+    <commandTopic>cmd_vel</commandTopic>
+
+    <!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
+    <odometryTopic>odom</odometryTopic>
+
+    <!-- Odometry frame, defaults to `odom` -->
+    <odometryFrame>odom</odometryFrame>
+
+    <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
+    <robotBaseFrame>base_link</robotBaseFrame>
+
+    <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
+    <odometrySource>1</odometrySource>
+
+    <!-- Set to true to publish transforms for the wheel links, defaults to false -->
+    <publishWheelTF>false</publishWheelTF>
+
+    <!-- Set to true to publish transforms for the odometry, defaults to true -->
+    <publishOdom>false</publishOdom>
+
+    <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
+    <publishWheelJointState>false</publishWheelJointState>
+
+    <!-- Set to true to swap right and left wheels, defaults to true -->
+    <legacyMode>false</legacyMode>
+  </plugin>
+</gazebo>
+
+<gazebo reference="fir">        
+   <sensor type="ray" name="TeraRanger">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>50</update_rate>
+      <ray>
+         <scan>
+            <horizontal>
+               <samples>10</samples>
+               <resolution>1</resolution> 
+               <min_angle>-0.14835</min_angle>
+               <max_angle>0.14835</max_angle>
+            </horizontal>
+            <vertical>
+               <samples>10</samples>
+               <resolution>1</resolution> 
+               <min_angle>-0.14835</min_angle>
+               <max_angle>0.14835</max_angle> 
+            </vertical>
+         </scan>
+         <range>
+            <min>0.01</min>
+            <max>2</max>
+            <resolution>0.02</resolution>
+         </range>
+      </ray>
+      <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+         <gaussianNoise>0.005</gaussianNoise>
+         <alwaysOn>true</alwaysOn>
+         <updateRate>50</updateRate>
+         <topicName>fir</topicName>
+         <frameName>fir</frameName>
+         <radiation>INFRARED</radiation>
+         <fov>0.2967</fov>
+      </plugin>
+   </sensor>  
+   </gazebo>
+</robot>
